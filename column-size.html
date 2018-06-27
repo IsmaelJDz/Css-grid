@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tamaño de item en columnas</title>
+	<style>
+		body {
+			font-family: Arial;
+		}
+
+		.container {
+            /*inicia el sistema grid*/
+			display: grid;
+            /* inicia el columnas el primer valor son las columnas y el segundo la medida y va asociado a una funcion repeat solo para abrevisar*/
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            /*el grid grap es un tipo de padding en el grid*/
+			grid-gap: 10px;
+            /* el alto del view port*/
+            height: 100vh;
+		}
+		.item {
+			background: lightblue;
+			padding: 10px;
+			border: 1px solid red;
+		}
+
+        .item:nth-of-type(1) {
+            background: blue;
+            /* esta es la manera no abreviada del grid column y rows*/
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        /* indica que el item 8 empezara desde la linea 1 que es el borde y termina en la 2*/
+        .item:nth-of-type(8) {
+            /*grid-column: 1 / span 2;*/
+            grid-column: 1 / -1;
+        }
+
+        /* indica que el item 7 empezara desde la linea 2 que es el borde y termina en la 4*/
+        .item:nth-of-type(7) {
+            grid-column: 2 / 4;
+        }
+
+	</style>
+</head>
+<body>
+	<section class="container">
+        <div class="item">item #1</div>
+        <div class="item">item #2</div>
+        <div class="item">item #3</div>
+        <div class="item">item #4</div>
+        <div class="item">item #5</div>
+        <div class="item">item #6</div>
+        <div class="item">item #7</div>
+        <div class="item">item #8</div>
+        <div class="item">item #9</div>
+        <div class="item">item #10</div>
+        <div class="item">item #11</div>
+        <div class="item">item #12</div>
+	</section>
+</body>
+</html>
